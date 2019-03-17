@@ -1,6 +1,3 @@
-# monalisa
-Mona Lisa Pixel Sorting
+# Trippy Spinner
 
-Around 10^22 possible portraits/animations of Prado's version of the Mona Lisa
-
-https://rdsilver.github.io/monalisa/
+https://rdsilver.github.io/Spinner/
