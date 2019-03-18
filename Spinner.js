@@ -19,8 +19,17 @@ class Spinner {
       var y2 = this.y + 1 * Math.sin(this.degree * Math.PI / 180);
       this.degree = this.degree + (360 / this.steps);
 
-      var colors = ['blue','gold'];
-      var color = colors[frameCount%colors.length];
+      var color = {
+        red: Math.abs(Math.cos(frameCount/100) * 255),
+        green: Math.abs(Math.cos(frameCount/107) * 255),
+        blue: Math.abs(Math.cos(frameCount/109) * 255),
+      }
+
+      if (frameCount%2 == 0) {
+        color.red = Math.abs(Math.cos(frameCount/55) * 255);
+        color.green = Math.abs(Math.cos(frameCount/205) * 255);
+        color.blue = Math.abs(Math.cos(frameCount/192) * 255);
+      }
 
       var ball = new Ball(this.x, this.y, x2, y2, color);
       balls.push(ball);
