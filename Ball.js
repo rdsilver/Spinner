@@ -9,29 +9,22 @@ class Ball {
       this.red = color.red;
       this.green = color.green;
       this.blue = color.blue;
-      this.redDirection = 1.1;
-      this.greenDirection = 1.2;
-      this.blueDirection = 1.3;
     }
 
     draw() {
-      this.x += this.xSlope * 3;
-      this.y += this.ySlope * 3;
+      if (this.dead)
+        return;
 
-      if (this.redDirection + this.red < 0 || this.redDirection + this.red > 255)
-        this.redDirection *= -1;
+      this.x += this.xSlope * optns.speed;
+      this.y += this.ySlope * optns.speed;
 
-      if (this.greenDirection + this.green < 0 || this.greenDirection + this.green > 255)
-        this.greenDirection *= -1;
-
-      if (this.blueDirection + this.blue < 0 || this.blueDirection + this.blue > 255)
-        this.blueDirection *= -1;
-
-      this.red+=this.redDirection;
-      this.green+=this.greenDirection;
-      this.blue+=this.blueDirection;
+      var shouldBeDead = this.y < 0 - optns.ballSize*2 || this.y > windowHeight + optns.ballSize*2 || this.x < 0 - optns.ballSize*2 || this.x > windowWidth + optns.ballSize*2;
+      if (shouldBeDead) {
+        numDead++;
+        return;
+      }
 
       fill(this.red, this.green, this.blue);
-      circle(this.x, this.y, 300);
+      circle(this.x, this.y, optns.ballSize);
     }
 }
