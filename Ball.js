@@ -18,7 +18,7 @@ class Ball {
       this.x += this.xSlope * optns.speed;
       this.y += this.ySlope * optns.speed;
 
-      var shouldBeDead = this.y < 0 - optns.ballSize*2 || this.y > windowHeight + optns.ballSize*2 || this.x < 0 - optns.ballSize*2 || this.x > windowWidth + optns.ballSize*2;
+      var shouldBeDead = this.y < 0 - optns.ballSize*4 || this.y > windowHeight + optns.ballSize*4 || this.x < 0 - optns.ballSize*4 || this.x > windowWidth + optns.ballSize*2;
       if (shouldBeDead) {
         numDead++;
         return;
